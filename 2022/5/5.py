@@ -1,6 +1,5 @@
-from collections import deque
 import re
-
+from collections import deque
 
 with open("input.txt", "r") as file:
     deque_list = [deque() for _ in range(9)]
