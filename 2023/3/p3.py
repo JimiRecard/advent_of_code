@@ -6,7 +6,7 @@ engine = []
 parts = 0
 gear_ratios = 0
 
-with open("2023/3/input.txt", "r") as input:
+with open("input.txt", "r") as input:
     for line in input.readlines():
         engine.append(line.strip())
 

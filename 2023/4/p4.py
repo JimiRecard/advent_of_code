@@ -2,7 +2,7 @@ import re
 
 points = 0
 cards = {f"Card {i}": 1 for i in range(1, 203)}
-with open("input.txt") as file:
+with open("input.txt", "r") as file:
     for card in file.readlines():
         card_number = int(re.findall("\d+", card.split(":")[0])[0])
         win_numbers = [
