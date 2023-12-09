@@ -4,7 +4,7 @@ from collections import deque
 # Part 1
 map_instructions = dict()
 
-with open("2023/5/input.txt", "r") as file:
+with open("input.txt", "r") as file:
     current_map = ""
     for i, line in enumerate(file.readlines()):
         if i == 0:
@@ -134,7 +134,7 @@ class Interval:
 
 all_maps: deque[list[Interval]] = deque()
 
-with open("2023/5/input.txt", "r") as file:
+with open("input.txt", "r") as file:
     current_map = ""
     for i, line in enumerate(file.readlines()):
         if i == 0:
