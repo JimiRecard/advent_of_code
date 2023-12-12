@@ -175,7 +175,7 @@ class Hand:
 
 
 hands = list()
-with open("2023/07/input.txt", "r") as file:
+with open("input.txt", "r") as file:
     for hand in file.readlines():
         hands.append(Hand(hand))
 
