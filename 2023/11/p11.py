@@ -1,5 +1,3 @@
-from collections import deque
-
 sky_map = list()
 empty_rows_idx = list()
 with open("input.txt", "r") as file:
@@ -25,7 +23,6 @@ galaxies_idx = [
     for j in range(len(sky_map[0]))
     if sky_map[i][j] == "#"
 ]
-
 
 
 def distance(
@@ -67,7 +64,7 @@ for i in range(len(galaxies_idx)):
                 galaxies_idx[i], galaxies_idx[j], empty_cols_idx, empty_rows_idx, 2
             )
         )
-        
+
 # Gets all distances between all galaxies, considering expansion 1M
 galaxy_distances_M = list()
 for i in range(len(galaxies_idx)):
