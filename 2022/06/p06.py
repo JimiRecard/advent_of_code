@@ -1,4 +1,7 @@
-with open("input.txt", "r") as file:
+import pathlib
+
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     signal = file.read()
     for i, char in enumerate(signal):
         # # rule 1

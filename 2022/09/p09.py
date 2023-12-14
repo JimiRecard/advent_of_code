@@ -1,3 +1,6 @@
+import pathlib
+
+
 def new_tpos(h: list[int], t: list[int]):
     dx = h[0] - t[0]
     dy = h[1] - t[1]
@@ -26,7 +29,8 @@ def h_move(hpos: list[int], dir: str):
             hpos[0] -= 1
 
 
-with open("input.txt", "r") as file:
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     rope = [[0, 0] for _ in range(2)]
     tpos_set = {(rope[1][0], rope[1][1])}
     for line in file.readlines():
@@ -39,7 +43,7 @@ with open("input.txt", "r") as file:
     print(len(tpos_set))  # answer: 5902
 
 
-with open("input.txt", "r") as file:
+with open(f"{path}/input.txt", "r") as file:
     rope = [[0, 0] for _ in range(10)]
     tpos_set = {(rope[-1][0], rope[-1][1])}
     for line in file.readlines():

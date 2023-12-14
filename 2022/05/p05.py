@@ -1,7 +1,9 @@
+import pathlib
 import re
 from collections import deque
 
-with open("input.txt", "r") as file:
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     deque_list = [deque() for _ in range(9)]
     temp_deque = deque()
     for i, line in enumerate(file.read().split("\n")):
@@ -11,7 +13,7 @@ with open("input.txt", "r") as file:
                     deque_list[i // 4].appendleft(line[i])
 
         else:
-            ## CrateMover 9000
+            # CrateMover 9000
             # try:
             #     qty = int(re.findall(r"move (\d+)", line)[0])
             #     dq1 = int(re.findall(r"from (\d+)", line)[0]) - 1
@@ -32,7 +34,7 @@ with open("input.txt", "r") as file:
                 for j in range(qty):
                     deque_list[dq2].append(temp_deque.pop())
 
-            except:
+            except:  # noqa
                 pass
 
     print([d[-1] for d in deque_list])

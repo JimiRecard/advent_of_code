@@ -1,4 +1,7 @@
-with open("input.txt", "r") as file:
+import pathlib
+
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     score_1 = 0
     score_2 = 0
     win_1 = ["A Y", "B Z", "C X"]

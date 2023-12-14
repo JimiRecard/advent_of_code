@@ -8,7 +8,7 @@ ribbon_lengths = list()
 
 with open(f"{path}/input.txt", "r") as file:
     for line in file.readlines():
-        l, w, h = [int(num) for num in re.findall("\d+", line)]
+        l, w, h = [int(num) for num in re.findall(r"\d+", line)]
         paper_area = 2 * l * w + 2 * w * h + 2 * h * l + min(l * w, w * h, h * l)
         wrapping_paper_areas.append(paper_area)
         ribbon_length = min(2 * l + 2 * w, 2 * w + 2 * h, 2 * h + 2 * l) + l * w * h

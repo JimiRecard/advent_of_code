@@ -1,3 +1,6 @@
+import pathlib
+
+
 class Card:
     # # Part 1
     # _card_values = "23456789TJQKA"
@@ -175,7 +178,9 @@ class Hand:
 
 
 hands = list()
-with open("input.txt", "r") as file:
+
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     for hand in file.readlines():
         hands.append(Hand(hand))
 

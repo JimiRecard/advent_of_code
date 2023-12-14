@@ -1,3 +1,5 @@
+import pathlib
+
 calibration_list = []
 real_calibration_list = []
 
@@ -22,9 +24,10 @@ eq_dict = {
 }
 
 
-with open("input.txt", "r") as file:
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     for line in file.readlines():
-        digits = [l for l in line if l.isnumeric()]
+        digits = [li for li in line if li.isnumeric()]
         cal = int(f"{digits[0]}{digits[-1]}")
         calibration_list.append(cal)
 
@@ -32,7 +35,7 @@ with open("input.txt", "r") as file:
             while k in line:
                 line = line.replace(k, v)
 
-        new_digits = [l for l in line if l.isnumeric()]
+        new_digits = [li for li in line if li.isnumeric()]
         new_cal = int(f"{new_digits[0]}{new_digits[-1]}")
         real_calibration_list.append(new_cal)
 

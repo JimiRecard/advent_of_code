@@ -1,5 +1,9 @@
+import pathlib
+
 forest = []
-with open("input.txt", "r") as file:
+
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     for line in file.readlines():
         forest.append([int(ch) for ch in line if ch.isdigit()])
 

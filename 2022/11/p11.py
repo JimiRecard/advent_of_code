@@ -1,3 +1,4 @@
+import pathlib
 import re
 from collections import deque
 
@@ -44,19 +45,21 @@ class Monkey1:
 
 monkey_list: list[Monkey1] = []
 
-with open("input.txt", "r") as file:
+
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     for i, line in enumerate(file.readlines()):
         match i % 7:
             case 1:
-                items = [int(item) for item in re.findall("\d+", line)]
+                items = [int(item) for item in re.findall(r"\d+", line)]
             case 2:
                 operation = line[re.search("old ", line).end() : -1]
             case 3:
-                test = int(re.findall("\d+", line)[0])
+                test = int(re.findall(r"\d+", line)[0])
             case 4:
-                truthy = int(re.findall("\d+", line)[0])
+                truthy = int(re.findall(r"\d+", line)[0])
             case 5:
-                falsy = int(re.findall("\d+", line)[0])
+                falsy = int(re.findall(r"\d+", line)[0])
                 monkey_list.append(Monkey1(items, test, operation, truthy, falsy))
 
 
@@ -116,19 +119,20 @@ class Monkey2:
 
 monkey_list: list[Monkey2] = []
 
-with open("input.txt", "r") as file:
+
+with open(f"{path}/input.txt", "r") as file:
     for i, line in enumerate(file.readlines()):
         match i % 7:
             case 1:
-                items = [int(item) for item in re.findall("\d+", line)]
+                items = [int(item) for item in re.findall(r"\d+", line)]
             case 2:
                 operation = line[re.search("old ", line).end() : -1]
             case 3:
-                test = int(re.findall("\d+", line)[0])
+                test = int(re.findall(r"\d+", line)[0])
             case 4:
-                truthy = int(re.findall("\d+", line)[0])
+                truthy = int(re.findall(r"\d+", line)[0])
             case 5:
-                falsy = int(re.findall("\d+", line)[0])
+                falsy = int(re.findall(r"\d+", line)[0])
                 monkey_list.append(Monkey2(items, test, operation, truthy, falsy))
 
 for round in range(10000):

@@ -1,8 +1,11 @@
+import pathlib
 from collections import defaultdict
 
 sizes = defaultdict(int)
 file_path = []
-with open("input.txt", "r") as file:
+
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     for line in file.readlines():
         if line.startswith("$ cd"):
             match (line):

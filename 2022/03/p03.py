@@ -1,6 +1,8 @@
+import pathlib
 import string
 
-with open("input.txt", "r") as file:
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     dup_priorities = 0
     badge_priorities = 0
     letter_values = " " + string.ascii_letters

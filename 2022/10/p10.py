@@ -1,3 +1,5 @@
+import pathlib
+
 cycle = 0
 x = 1
 display = [[" " for i in range(40)] for j in range(6)]
@@ -9,7 +11,8 @@ def write_display(cycle, x, display):
         display[cycle // 40][cycle % 40] = "#"
 
 
-with open("input.txt", "r") as file:
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     for line in file.readlines():
         op = line.split()[0]
         write_display(cycle, x, display)

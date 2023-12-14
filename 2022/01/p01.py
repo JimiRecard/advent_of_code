@@ -1,5 +1,8 @@
+import pathlib
+
+path = pathlib.Path(__file__).parent.resolve()
 elf_list = []
-with open("input.txt", "r") as file:
+with open(f"{path}/input.txt", "r") as file:
     elf_calories = 0
     for line in file.readlines():
         if line == "\n":

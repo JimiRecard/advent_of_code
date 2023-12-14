@@ -1,3 +1,6 @@
+import pathlib
+
+
 def nxt(previous: list[int], index: list[int], field: list[str]):
     style = field[index[0]][index[1]]
     match style:
@@ -37,7 +40,9 @@ def nxt(previous: list[int], index: list[int], field: list[str]):
 
 #  sets 2D array field and finds S_index
 field = list()
-with open("input.txt", "r") as file:
+
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     for i, line in enumerate(file.readlines()):
         # str is not subscriptable, list is
         field.append([char for char in line.strip()])

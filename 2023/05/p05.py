@@ -1,10 +1,13 @@
+import pathlib
 import re
 from collections import deque
 
 # Part 1
 map_instructions = dict()
 
-with open("input.txt", "r") as file:
+
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     current_map = ""
     for i, line in enumerate(file.readlines()):
         if i == 0:
@@ -131,13 +134,14 @@ class Interval:
 
 all_maps: deque[list[Interval]] = deque()
 
-with open("input.txt", "r") as file:
+
+with open(f"{path}/input.txt", "r") as file:
     current_map = ""
     for i, line in enumerate(file.readlines()):
         if i == 0:
             seed_ranges = [
                 (int(r[0]), int(r[0]) + int(r[1]))
-                for r in re.findall("(\d+) (\d+)", line)
+                for r in re.findall(r"(\d+) (\d+)", line)
             ]
 
         else:

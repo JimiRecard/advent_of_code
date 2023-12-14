@@ -1,4 +1,5 @@
 import math
+import pathlib
 import re
 from dataclasses import dataclass
 
@@ -10,9 +11,11 @@ class Race:
 
 
 # Part 1
-with open("input.txt", "r") as file:
-    times = [int(time) for time in re.findall("\d+", file.readline())]
-    distances = [int(distance) for distance in re.findall("\d+", file.readline())]
+
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
+    times = [int(time) for time in re.findall(r"\d+", file.readline())]
+    distances = [int(distance) for distance in re.findall(r"\d+", file.readline())]
 
 
 possible_ways = list()

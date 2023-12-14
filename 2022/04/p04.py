@@ -1,4 +1,7 @@
-with open("input.txt", "r") as file:
+import pathlib
+
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     fully_contained_elfs = 0
     overlapping_elfs = 0
     for i, line in enumerate(file.read().split("\n")):

@@ -1,8 +1,11 @@
 import math
+import pathlib
 import re
 
 desert_map = dict()
-with open("input.txt", "r") as file:
+
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     for i, line in enumerate(file.readlines()):
         if i == 0:
             instructions = line.strip()
@@ -10,7 +13,7 @@ with open("input.txt", "r") as file:
         elif i == 1:
             pass
         else:
-            ways = re.findall("\w+", line.split("= (")[1])
+            ways = re.findall(r"\w+", line.split("= (")[1])
             desert_map[line.split(" ")[0]] = ways
 
 

@@ -1,8 +1,11 @@
+import pathlib
 import re
+
+path = pathlib.Path(__file__).parent.resolve()
 
 possible_games = []
 powers = []
-with open("input.txt", "r") as input:
+with open(f"{path}/input.txt", "r") as input:
     for game in input.readlines():
         r_num = max([int(num) for num in re.findall(r"(\d+) red", game)])
         g_num = max([int(num) for num in re.findall(r"(\d+) green", game)])

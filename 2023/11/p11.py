@@ -1,6 +1,10 @@
+import pathlib
+
 sky_map = list()
 empty_rows_idx = list()
-with open("input.txt", "r") as file:
+
+path = pathlib.Path(__file__).parent.resolve()
+with open(f"{path}/input.txt", "r") as file:
     for i, line in enumerate(file.readlines()):
         # Needs to be list, str is not subscriptable
         sky_map.append([char for char in line.strip()])
