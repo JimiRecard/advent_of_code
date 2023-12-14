@@ -34,6 +34,7 @@ def nxt(previous: list[int], index: list[int], field: list[str]):
             else:
                 return [index[0], index[1] + 1]
 
+
 #  sets 2D array field and finds S_index
 field = list()
 with open("input.txt", "r") as file:
@@ -83,14 +84,14 @@ for f in field:
         if f[i] == "S":
             # match [left, up, right, down]
             match [
-                field[S_index[0]][S_index[1]-1],
-                field[S_index[0]-1][S_index[1]],
-                field[S_index[0]][S_index[1]+1],
-                field[S_index[0]+1][S_index[1]],
+                field[S_index[0]][S_index[1] - 1],
+                field[S_index[0] - 1][S_index[1]],
+                field[S_index[0]][S_index[1] + 1],
+                field[S_index[0] + 1][S_index[1]],
             ]:
                 case ["┌" | "─" | "└", "│" | "┐" | "┌", _, _]:
                     f[i] = "┘"
-                    
+
                 case [_, "│" | "┐" | "┌", "┐" | "─" | "┘", _]:
                     f[i] = "└"
 
@@ -105,13 +106,13 @@ for f in field:
 
                 case [_, "│" | "┐" | "┌", _, "│" | "└" | "┘"]:
                     f[i] = "│"
-                    
+
         elif f[i] not in "└┘┌┐─│":
             f[i] = "#"
 
     # show map
     print("".join(f))
-    
+
 num_of_inner_chars = 0
 
 
@@ -120,7 +121,7 @@ for j, f in enumerate(field):
     top_inside = False
     for i in range(len(f)):
         # Every line begins outside the loop. After walls, the character is inside
-        # Corner characters divide in top and bottom. 
+        # Corner characters divide in top and bottom.
         # ┌┘ and └┐ (with as many ─ in between) form a full wall.
         if f[i] == "│":
             top_inside = not top_inside
@@ -132,5 +133,5 @@ for j, f in enumerate(field):
         else:
             if bottom_inside and top_inside and f[i] != "─":
                 num_of_inner_chars += 1
-    
+
 print(num_of_inner_chars)  # answer: 449

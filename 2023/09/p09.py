@@ -1,6 +1,6 @@
 sequences = list()
 
-with open("2023/09/input.txt", "r") as file:
+with open("input.txt", "r") as file:
     for line in file.readlines():
         sequences.append([int(num) for num in line.split(" ")])
 
