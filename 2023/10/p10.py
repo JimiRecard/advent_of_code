@@ -122,21 +122,29 @@ num_of_inner_chars = 0
 
 
 for j, f in enumerate(field):
-    bottom_inside = False
-    top_inside = False
+    inside = False
+    # bottom_inside = False
+    # top_inside = False
     for i in range(len(f)):
         # Every line begins outside the loop. After walls, the character is inside
         # Corner characters divide in top and bottom.
         # ┌┘ and └┐ (with as many ─ in between) form a full wall.
-        if f[i] == "│":
-            top_inside = not top_inside
-            bottom_inside = not bottom_inside
-        elif f[i] in "└┘":
-            top_inside = not top_inside
-        elif f[i] in "┌┐":
-            bottom_inside = not bottom_inside
+        # if f[i] == "│":
+        #     top_inside = not top_inside
+        #     bottom_inside = not bottom_inside
+        # elif f[i] in "└┘":
+        #     top_inside = not top_inside
+        # elif f[i] in "┌┐":
+        #     bottom_inside = not bottom_inside
+        # else:
+        #     if bottom_inside and top_inside and f[i] != "─":
+        #         num_of_inner_chars += 1
+        
+        if f[i] in "│┌┐":  # "│└┘" also works
+            inside = not inside
         else:
-            if bottom_inside and top_inside and f[i] != "─":
+            if inside and f[i] == "#":
                 num_of_inner_chars += 1
+
 
 print(num_of_inner_chars)  # answer: 449
